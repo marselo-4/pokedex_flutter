@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_flutter/screens/main_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
@@ -21,7 +22,7 @@ class MainApp extends StatelessWidget {
           theme: AppTheme().getTheme(),
           initialRoute: '/',
           routes: {
-            '/': (context) => const PokemonScreen(),
+            '/': (context) => MainScreen(),
           },
         ));
   }
