@@ -35,7 +35,7 @@ class PokemonScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('POKEAPP', style: TextStyle(color: Colors.white)),
+        title: Text('POKEAPP', style: GoogleFonts.pressStart2p()),
         automaticallyImplyLeading: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(

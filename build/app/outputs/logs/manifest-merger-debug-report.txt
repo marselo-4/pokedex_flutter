@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:2:5-33:19
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:5:5-36:19
 MERGED from [androidx.window:window:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\22229b53b14785a344d7d29a4b4d7891\transformed\jetified-window-1.2.0\AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.window:window:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\22229b53b14785a344d7d29a4b4d7891\transformed\jetified-window-1.2.0\AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.core:core:1.13.1] C:\Users\Carlos\.gradle\caches\transforms-3\67ba6b2e52ef49b73d03f3fd1b606e38\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
@@ -18,15 +18,18 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Ca
 	android:name
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
-MERGED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
+MERGED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
+MERGED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:fluttertoast] C:\DAM\pokedex_flutter\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] C:\DAM\pokedex_flutter\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Carlos\.gradle\caches\transforms-3\d3477c4f8eaa29a222d027f849c49cc1\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media:media:1.1.0] C:\Users\Carlos\.gradle\caches\transforms-3\824e6182ec10bdd89064f359cc372058\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.window:window:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\22229b53b14785a344d7d29a4b4d7891\transformed\jetified-window-1.2.0\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.window:window-java:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\e58c8680c62d018d2d38dac31daa2397\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:17:1-21:12
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Carlos\.gradle\caches\transforms-3\d3477c4f8eaa29a222d027f849c49cc1\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.8.1] C:\Users\Carlos\.gradle\caches\transforms-3\7d47ffbc7cb72309e90d76096f11749b\transformed\jetified-activity-1.8.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\635458616d124f557a580b83a236eb8b\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\230769ae677992224a78ad4f6cfa72cb\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -44,53 +47,77 @@ MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Carlos\.gradle\cache
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Carlos\.gradle\caches\transforms-3\1388301f711daf9dd4ed11c815688faf\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\9fee9a84869d97b593876772f4682d1b\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\b327028bc3811a6d8f1ced1f1dbe0da7\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\a69a6b6370971cbb91713996fc76998d\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\c41cc9aca810bcdb543fab917231de85\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\cb8b89f5979fbc7c9f8a355708653fb7\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\c41cc9aca810bcdb543fab917231de85\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\a69a6b6370971cbb91713996fc76998d\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\3164157aa12ed12b8ee13287081eb885\transformed\jetified-core-1.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\Carlos\.gradle\caches\transforms-3\08aaba78c4d08a72414a64233c3933df\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] C:\Users\Carlos\.gradle\caches\transforms-3\30e4556e08272a87a819a72d54b33716\transformed\jetified-relinker-1.4.5\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:1:1-9:12
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:1:1-9:12
+INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:1:1-9:12
 	package
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-45:12
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:1-48:12
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:1:11-69
-queries
-ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:39:5-44:15
-intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
-ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:40:9-43:18
-action#android.intent.action.PROCESS_TEXT
-ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:41:13-72
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:2:1-72
+MERGED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:2:1-72
+MERGED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:2:1-72
+MERGED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
+MERGED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
 	android:name
-		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:41:21-70
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:2:18-70
+uses-permission#android.permission.INTERNET
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:3:1-62
+MERGED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:3:1-62
+MERGED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:3:1-62
+	android:name
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:3:18-60
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:4:1-74
+	android:name
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:4:18-72
+queries
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:42:5-47:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:43:9-46:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:44:13-72
+	android:name
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:44:21-70
 data
-ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:42:13-50
+ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:45:13-50
 	android:mimeType
-		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:42:19-48
+		ADDED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml:45:19-48
 uses-sdk
 INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
+MERGED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\DAM\pokedex_flutter\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\DAM\pokedex_flutter\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\DAM\pokedex_flutter\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\DAM\pokedex_flutter\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Carlos\.gradle\caches\transforms-3\d3477c4f8eaa29a222d027f849c49cc1\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Carlos\.gradle\caches\transforms-3\d3477c4f8eaa29a222d027f849c49cc1\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.media:media:1.1.0] C:\Users\Carlos\.gradle\caches\transforms-3\824e6182ec10bdd89064f359cc372058\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] C:\Users\Carlos\.gradle\caches\transforms-3\824e6182ec10bdd89064f359cc372058\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\22229b53b14785a344d7d29a4b4d7891\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window:window:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\22229b53b14785a344d7d29a4b4d7891\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window:window-java:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\e58c8680c62d018d2d38dac31daa2397\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
 MERGED from [androidx.window:window-java:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\e58c8680c62d018d2d38dac31daa2397\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Carlos\.gradle\caches\transforms-3\d3477c4f8eaa29a222d027f849c49cc1\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Carlos\.gradle\caches\transforms-3\d3477c4f8eaa29a222d027f849c49cc1\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity:1.8.1] C:\Users\Carlos\.gradle\caches\transforms-3\7d47ffbc7cb72309e90d76096f11749b\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.8.1] C:\Users\Carlos\.gradle\caches\transforms-3\7d47ffbc7cb72309e90d76096f11749b\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\635458616d124f557a580b83a236eb8b\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
@@ -125,12 +152,12 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Carlos\.gradle\cac
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\9fee9a84869d97b593876772f4682d1b\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\b327028bc3811a6d8f1ced1f1dbe0da7\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\b327028bc3811a6d8f1ced1f1dbe0da7\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\a69a6b6370971cbb91713996fc76998d\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\a69a6b6370971cbb91713996fc76998d\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\c41cc9aca810bcdb543fab917231de85\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\c41cc9aca810bcdb543fab917231de85\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\cb8b89f5979fbc7c9f8a355708653fb7\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\cb8b89f5979fbc7c9f8a355708653fb7\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\c41cc9aca810bcdb543fab917231de85\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Carlos\.gradle\caches\transforms-3\c41cc9aca810bcdb543fab917231de85\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\a69a6b6370971cbb91713996fc76998d\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\a69a6b6370971cbb91713996fc76998d\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\3164157aa12ed12b8ee13287081eb885\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\Carlos\.gradle\caches\transforms-3\3164157aa12ed12b8ee13287081eb885\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\Carlos\.gradle\caches\transforms-3\08aaba78c4d08a72414a64233c3933df\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
@@ -145,10 +172,10 @@ INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:6:5-66
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
 	android:name
-		ADDED from C:\DAM\pokedex_flutter\android\app\src\debug\AndroidManifest.xml:6:22-64
+		ADDED from [:flutter_local_notifications] C:\DAM\pokedex_flutter\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.2.0] C:\Users\Carlos\.gradle\caches\transforms-3\22229b53b14785a344d7d29a4b4d7891\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
 	android:required

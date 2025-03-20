@@ -18,9 +18,9 @@
     - [x] Mostrar un mensaje si la API falla
  
 3 --> Extras
-    - [] Carga mas eficiente de la API
+    - [X] Carga mas eficiente de la API
     - [] Gurdar los pokemons en una bbdd local
     - [X] Animaciones avanzadas en pokemons
     - [X] Animacion de carga
-    - [] Temas personalizados
-    - [] Comparador de pokemons
+    - [X] Temas personalizados
+    - [:|] Comparador de pokemons

@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:pokedex_flutter/config/theme/app_theme.dart';
+import 'package:pokedex_flutter/data/bbdd.dart';
+import 'package:pokedex_flutter/extensions/extensions.dart';
 import 'package:pokedex_flutter/providers/pokemon_provider.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:provider/provider.dart';
@@ -28,10 +30,12 @@ class _MainScreenState extends State<MainScreen> {
   Set<int> _favorites = {};
   bool _isDarkMode = true;
   ThemeMode _themeMode = ThemeMode.dark;
+  bool _showFavoritesOnly = false;
 
   @override
   void initState() {
     super.initState();
+    context.read<PokemonProvider>().checkLocalDatabase();
     _scrollController.addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<PokemonProvider>(context, listen: false)
@@ -138,6 +142,12 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+  void _toggleFavoritesView() {
+    setState(() {
+      _showFavoritesOnly = !_showFavoritesOnly;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -152,22 +162,29 @@ class _MainScreenState extends State<MainScreen> {
           actions: [
             IconButton(
               icon: Icon(_isGridView ? Icons.list : Icons.grid_view,
-                  color: Colors.white),
+                  ),
               onPressed: _toggleView,
             ),
             IconButton(
               icon: const Icon(Icons.refresh),
               onPressed: _fetchAllPokemon,
             ),
+            IconButton(onPressed: () {PokemonDatabase().saveAllPokemons(Provider.of<PokemonProvider>(context, listen: false)
+                .pokemonList);}, icon: Icon(Icons.download)),
             IconButton(
               icon: const Icon(Icons.shuffle),
               onPressed: _showRandomPokemon,
             ),
             IconButton(
+              icon: Icon(
+                _showFavoritesOnly ? Icons.favorite : Icons.favorite_border,
+              ),
+              onPressed: _toggleFavoritesView,
+            ),
+            IconButton(
               onPressed: _switchTheme,
               icon: Icon(
                 _isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                color: Colors.white,
               ),
             ),
           ],
@@ -248,14 +265,19 @@ class _MainScreenState extends State<MainScreen> {
             Expanded(
               child: Consumer<PokemonProvider>(
                 builder: (context, pokemonProvider, child) {
-                  final filteredList =
-                      pokemonProvider.pokemonList.where((pokemon) {
+                  var filteredList = pokemonProvider.pokemonList.where((pokemon) {
                     return pokemon.name
                             .toLowerCase()
                             .contains(_searchQuery.toLowerCase()) &&
                         (_selectedType == 'All' ||
                             pokemon.types.contains(_selectedType));
                   }).toList();
+
+                  if (_showFavoritesOnly) {
+                    filteredList = filteredList
+                        .where((pokemon) => _favorites.contains(pokemon.id))
+                        .toList();
+                  }
 
                   if (_orderByName) {
                     filteredList.sort((a, b) => a.name.compareTo(b.name));
@@ -269,6 +291,27 @@ class _MainScreenState extends State<MainScreen> {
                           width: MediaQuery.of(context).size.width * 0.1),
                     );
                   }
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    AlertDialog(
+                      title: const Text('Error'),
+                      content: const Text('There\'s some issue with your search/filter or your internet connection'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    );
+                  });
+
+                  Future.delayed(const Duration(seconds: 15), () {
+                    _fetchAllPokemon();
+                  });
+
+
                   return _isGridView
                       ? GridView.builder(
                           controller: _scrollController,
@@ -339,7 +382,7 @@ class _MainScreenState extends State<MainScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(pokemon.image, height: 80, width: 80),
-            Text(pokemon.name,
+            Text(pokemon.name.toString().capitalize(),
                 style: GoogleFonts.lato(fontSize: 18, color: Colors.white)),
             IconButton(
               icon: Icon(
@@ -368,7 +411,7 @@ class _MainScreenState extends State<MainScreen> {
         child: ListTile(
           leading: Image.network(pokemon.image),
           title: Text(
-            pokemon.name,
+            pokemon.name.toString().capitalize(),
             style: GoogleFonts.roboto(
                 fontWeight: FontWeight.bold, color: Colors.white),
           ),

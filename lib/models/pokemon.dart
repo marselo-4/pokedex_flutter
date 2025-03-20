@@ -32,4 +32,14 @@ class Pokemon {
       types: types ?? [],
     );
   }
+
+    Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'image': image,
+      'types': types,
+    };
+  }
 }
+

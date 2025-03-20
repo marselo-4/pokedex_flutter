@@ -18,6 +18,7 @@ dependencies:
   http: ^1.2.2
   provider: ^6.1.2
   riverpod: ^2.6.1
+  shared_preferences: ^2.5.2
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokedex_flutter/data/bbdd.dart';
 import 'dart:convert';
 import 'package:pokedex_flutter/models/pokemon.dart';
 
@@ -10,6 +11,13 @@ class PokemonProvider extends ChangeNotifier {
   PokemonProvider() {
     cargaPredeterminada();
     fetchPokemon(0);
+  }
+
+  void checkLocalDatabase() async {
+    PokemonDatabase().getAllPokemons().then((value) {
+      pokemonList = value;
+      notifyListeners();
+    });
   }
 
   void cargaPredeterminada() async {
@@ -111,7 +119,7 @@ class PokemonProvider extends ChangeNotifier {
     _isLoading = true;
 
     try {
-      final response = await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/?limit=1025&offset=0'));
+      final response = await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/?limit=1025&offset=20'));
       if (response.statusCode == 200) {
         final json = await jsonDecode(response.body) as Map<String, dynamic>;
         final results = json['results'] as List<dynamic>;
