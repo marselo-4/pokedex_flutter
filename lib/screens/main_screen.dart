@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:pokedex_flutter/config/theme/app_theme.dart';
 import 'package:pokedex_flutter/providers/pokemon_provider.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,8 @@ class _MainScreenState extends State<MainScreen> {
   bool _orderByName = false;
   String _selectedType = 'All';
   Set<int> _favorites = {};
+  bool _isDarkMode = true;
+  ThemeMode _themeMode = ThemeMode.dark;
 
   @override
   void initState() {
@@ -35,6 +38,7 @@ class _MainScreenState extends State<MainScreen> {
           .fetchPokemon(_offset);
     });
     _initializeNotifications();
+    _isDarkMode ? AppTheme().getDarkTheme() : AppTheme().getLightTheme();
   }
 
   void _initializeNotifications() {
@@ -127,174 +131,189 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+  void _switchTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+      _themeMode = _isDarkMode ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('POKEAPP', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-            icon: Icon(_isGridView ? Icons.list : Icons.grid_view,
-                color: Colors.white),
-            onPressed: _toggleView,
-          ),
-          IconButton(
-            icon: Icon(Icons.refresh, color: Colors.white),
-            onPressed: _fetchAllPokemon,
-          ),
-          IconButton(
-            icon: Icon(Icons.shuffle, color: Colors.white),
-            onPressed: _showRandomPokemon,
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: 'Search Pokemon...',
-                hintStyle: TextStyle(color: Colors.white70),
-                filled: true,
-                fillColor: Colors.grey[900],
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _searchQuery = value;
-                });
-              },
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme().getLightTheme(),
+      darkTheme: AppTheme().getDarkTheme(),
+      themeMode: _themeMode,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: _isDarkMode ? Colors.black : Colors.white,
+          title: Text('POKEAPP', style: GoogleFonts.pressStart2p(),),
+          actions: [
+            IconButton(
+              icon: Icon(_isGridView ? Icons.list : Icons.grid_view,
+                  color: Colors.white),
+              onPressed: _toggleView,
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              DropdownButton<String>(
-              value: _selectedType,
-              dropdownColor: Colors.black,
-              items: [
-                'All',
-                'normal',
-                'fire',
-                'water',
-                'grass',
-                'electric',
-                'ice',
-                'fighting',
-                'poison',
-                'ground',
-                'flying',
-                'psychic',
-                'bug',
-                'rock',
-                'ghost',
-                'dark',
-                'dragon',
-                'steel',
-                'fairy'
-              ]
-                .map((type) => DropdownMenuItem(
-                  value: type,
-                  child:
-                    Text(type, style: TextStyle(color: Colors.white))))
-                .toList(),
-              onChanged: (value) {
-                setState(() {
-                _selectedType = value!;
-                });
-              },
+            IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: _fetchAllPokemon,
+            ),
+            IconButton(
+              icon: const Icon(Icons.shuffle),
+              onPressed: _showRandomPokemon,
+            ),
+            IconButton(
+              onPressed: _switchTheme,
+              icon: Icon(
+                _isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                color: Colors.white,
               ),
-              Row(
-              children: [
-                const Text('ID', style: TextStyle(color: Colors.white)),
-                Switch(
-                value: _orderByName,
+            ),
+          ],
+        ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search Pokemon...',
+                  filled: true,
+                  fillColor: Colors.grey[900],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
                 onChanged: (value) {
                   setState(() {
-                  _orderByName = value;
+                    _searchQuery = value;
                   });
                 },
-                activeColor: Colors.red,
-                ),
-                const Text('Name', style: TextStyle(color: Colors.white)),
-              ],
               ),
-            ],
-          ),
-          Expanded(
-            child: Consumer<PokemonProvider>(
-              builder: (context, pokemonProvider, child) {
-                final filteredList =
-                    pokemonProvider.pokemonList.where((pokemon) {
-                  return pokemon.name
-                          .toLowerCase()
-                          .contains(_searchQuery.toLowerCase()) &&
-                      (_selectedType == 'All' ||
-                          pokemon.types.contains(_selectedType));
-                }).toList();
-
-                if (_orderByName) {
-                  filteredList.sort((a, b) => a.name.compareTo(b.name));
-                } else {
-                  filteredList.sort((a, b) => a.id.compareTo(b.id));
-                }
-
-                if (filteredList.isEmpty) {
-                  return Center(
-                    child: Image.asset('assets/images/spinnerPokeball.gif',
-                        width: MediaQuery.of(context).size.width * 0.1),
-                  );
-                }
-                return _isGridView
-                    ? GridView.builder(
-                        controller: _scrollController,
-                        gridDelegate:
-                            const SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 200,
-                          childAspectRatio: 0.85,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                        ),
-                        itemCount:
-                            filteredList.length + (_isLoadingMore ? 1 : 0),
-                        itemBuilder: (context, index) {
-                          if (index == filteredList.length) {
-                            return Center(
-                              child: Image.asset(
-                                  'assets/images/spinnerPokeball.gif',
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.1),
-                            );
-                          }
-                          return _buildPokemonCard(filteredList[index]);
-                        },
-                      )
-                    : ListView.builder(
-                        controller: _scrollController,
-                        itemCount:
-                            filteredList.length + (_isLoadingMore ? 1 : 0),
-                        itemBuilder: (context, index) {
-                          if (index == filteredList.length) {
-                            return Center(
-                              child: Image.asset(
-                                  'assets/images/spinnerPokeball.gif',
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.1),
-                            );
-                          }
-                          return _buildPokemonCardList(filteredList[index]);
-                        },
-                      );
-              },
             ),
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                DropdownButton<String>(
+                  value: _selectedType,
+                  items: [
+                    'All',
+                    'normal',
+                    'fire',
+                    'water',
+                    'grass',
+                    'electric',
+                    'ice',
+                    'fighting',
+                    'poison',
+                    'ground',
+                    'flying',
+                    'psychic',
+                    'bug',
+                    'rock',
+                    'ghost',
+                    'dark',
+                    'dragon',
+                    'steel',
+                    'fairy'
+                  ]
+                      .map((type) => DropdownMenuItem(
+                          value: type,
+                          child: Text(type,)))
+                      .toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedType = value!;
+                    });
+                  },
+                ),
+                Row(
+                  children: [
+                    const Text('ID'),
+                    Switch(
+                      value: _orderByName,
+                      onChanged: (value) {
+                        setState(() {
+                          _orderByName = value;
+                        });
+                      },
+                      activeColor: Colors.red,
+                    ),
+                    const Text('Name'),
+                  ],
+                ),
+              ],
+            ),
+            Expanded(
+              child: Consumer<PokemonProvider>(
+                builder: (context, pokemonProvider, child) {
+                  final filteredList =
+                      pokemonProvider.pokemonList.where((pokemon) {
+                    return pokemon.name
+                            .toLowerCase()
+                            .contains(_searchQuery.toLowerCase()) &&
+                        (_selectedType == 'All' ||
+                            pokemon.types.contains(_selectedType));
+                  }).toList();
+
+                  if (_orderByName) {
+                    filteredList.sort((a, b) => a.name.compareTo(b.name));
+                  } else {
+                    filteredList.sort((a, b) => a.id.compareTo(b.id));
+                  }
+
+                  if (filteredList.isEmpty) {
+                    return Center(
+                      child: Image.asset('assets/images/spinnerPokeball.gif',
+                          width: MediaQuery.of(context).size.width * 0.1),
+                    );
+                  }
+                  return _isGridView
+                      ? GridView.builder(
+                          controller: _scrollController,
+                          gridDelegate:
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 200,
+                            childAspectRatio: 0.85,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                          ),
+                          itemCount:
+                              filteredList.length + (_isLoadingMore ? 1 : 0),
+                          itemBuilder: (context, index) {
+                            if (index == filteredList.length) {
+                              return Center(
+                                child: Image.asset(
+                                    'assets/images/spinnerPokeball.gif',
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.1),
+                              );
+                            }
+                            return _buildPokemonCard(filteredList[index]);
+                          },
+                        )
+                      : ListView.builder(
+                          controller: _scrollController,
+                          itemCount:
+                              filteredList.length + (_isLoadingMore ? 1 : 0),
+                          itemBuilder: (context, index) {
+                            if (index == filteredList.length) {
+                              return Center(
+                                child: Image.asset(
+                                    'assets/images/spinnerPokeball.gif',
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.1),
+                              );
+                            }
+                            return _buildPokemonCardList(filteredList[index]);
+                          },
+                        );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

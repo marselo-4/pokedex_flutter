@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
         providers: [ChangeNotifierProvider(create: (_) => PokemonProvider())],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: AppTheme().getTheme(),
+          theme: AppTheme().getDarkTheme(),
           initialRoute: '/',
           routes: {
             '/': (context) => MainScreen(),
